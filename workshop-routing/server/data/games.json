@@ -1,0 +1,26 @@
+{
+    "0961fa62-336e-406e-8dcc-04a2e0b8f0ef": {
+        "title": "Satisfactory",
+        "category": "Automation",
+        "maxLevel": "10",
+        "imageUrl": "https://cdn.akamai.steamstatic.com/steam/apps/526870/capsule_616x353.jpg?t=1670335305",
+        "summary": "Satisfactory is a big and complex game that can be expanded and refined for a very long time and we believe that there is a community of factory builders out in the world that would love to join us to create this beast of a game together.",
+        "_id": "0961fa62-336e-406e-8dcc-04a2e0b8f0ef"
+    },
+    "3d6536fe-22a6-4e80-b254-0086e4e10493": {
+        "title": "Eve Online",
+        "category": "Space Simulator",
+        "maxLevel": "10",
+        "imageUrl": "https://assets-prd.ignimgs.com/2021/05/15/eve-online-button-2021-1621039195116.jpg",
+        "summary": "EVE Vanguard is a tense, gritty, and immersive sandbox FPS set in the epic sci-fi universe of New Eden, 21,000 years in the future. Technologically immortal warclones descend to planets to explore, exploit, and conquer dangerous combat zones, mastering adaptive weaponry and overcoming emergent threats to leave their mark in the great war taking place amongst the stars.",
+        "_id": "3d6536fe-22a6-4e80-b254-0086e4e10493"
+    },
+    "e2847246-af5f-4ab2-9924-c304c6133e8c": {
+        "title": "World of Warcraft",
+        "category": "MMO RPG",
+        "maxLevel": "11",
+        "imageUrl": "https://logos-download.com/wp-content/uploads/2016/02/WOW_logo.png",
+        "summary": "World of Warcraft is a massively multiplayer online role-playing game released in 2004 by Blizzard Entertainment",
+        "_id": "e2847246-af5f-4ab2-9924-c304c6133e8c"
+    }
+}
