@@ -6,40 +6,28 @@ import Register from "./components/register/Register";
 import GameList from "./components/game-list/GameList";
 import GameCreate from "./components/game-create/GameCreate";
 import GameDetails from "./components/game-details/GameDetails";
-import { useState } from "react";
-import { AuthContext } from "./contexts/AuthContext";
+import { AuthContextProvider } from "./contexts/AuthContext";
+import Logout from "./components/logout/Logout";
 
 function App() {
-    const [authState, setAuthState] = useState({})
-
-    const changeAuthState=(state)=>{
-        localStorage.setItem('accessToken', state.accessToken);
-        setAuthState(state);
-    }
-    const contextData = {
-        userId: authState._id,
-        email: authState.email,
-        accessToken: authState.accessToken,
-        isAuthenticated: !!authState.email,
-        changeAuthState,
-    }
 
     return (
-        <AuthContext.Provider value={contextData }>
+        <AuthContextProvider >
             <div id="box">
                 <Header />
                 <main id="main-content">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="/register" element={<Register />} />
-                        <Route path="/games" element={<GameList />} />\
+                        <Route path="/games" element={<GameList />} />
                         <Route path="/games/:gameId/details" element={<GameDetails />} />
                         <Route path="/games/create" element={<GameCreate />} />
                     </Routes>
                 </main>
             </div>
-        </AuthContext.Provider>
+        </AuthContextProvider>
 
     )
 }
