@@ -29,6 +29,8 @@ export const useLogout = () => {
         locallogout();
         await logout();
 
+
+
     }
     return logoutHandler;
 }

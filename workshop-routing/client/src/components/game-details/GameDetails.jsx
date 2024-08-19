@@ -1,15 +1,17 @@
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useGetAllComments, useCreateComment } from "../../hooks/useComments";
 import { useGetOneGames } from "../../hooks/useGames";
+import gamesAPI from "../../api/games-api";
 
 const initialValues = {
     comment: ''
 }
 
 export default function GameDetails() {
+    const navigate = useNavigate();
     const { gameId } = useParams();
     const [comments, dispatch] = useGetAllComments(gameId);
     const createComment = useCreateComment();
@@ -21,8 +23,6 @@ export default function GameDetails() {
 
         try{
             const newComment = await createComment(gameId, comment);
-
-            // setComments(oldComments=>[...oldComments, newComment]);
             dispatch({type:"ADD_COMMENT", payload: {...newComment, author:{email}}})
         }catch (err){
             console.log(err.message)
@@ -30,6 +30,19 @@ export default function GameDetails() {
     })
 
     const isOwner = userId === game._ownerId;
+
+    const gameDeleteHandler = async()=>{
+        try{
+            const isConfirmed = confirm('Are you sure');
+            if(isConfirmed){
+                await gamemovsAPI.remove(gameId);
+                navigate('/');
+            }
+        }catch(err){
+            console.log(err.message);
+        }
+        
+    }
 
     return (
         <section id="game-details">
@@ -66,8 +79,8 @@ export default function GameDetails() {
 
                 {/* <!-- Edit/Delete buttons ( Only htmlFo creator of this game )  --> */}
                 {isOwner && <div className="buttons">
-                    <a href="#" className="button">Edit</a>
-                    <a href="#" className="button">Delete</a>
+                    <Link to={`/games/${gameId}/edit`} className="button">Edit</Link>
+                    <a href="#" onClick={gameDeleteHandler} className="button">Delete</a>
                 </div>}
             </div>
 

@@ -36,7 +36,7 @@ export default function Login() {
                         value={values.password}
                         onChange={changeHandler}
                         type="password"
-                        id="login-password"
+                        id="password"
                         name="password"
                     />
                     <input type="submit" className="btn submit" value="Login" />

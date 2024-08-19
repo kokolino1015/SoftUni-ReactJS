@@ -12,7 +12,13 @@ export function useGetAllGames(){
     return [games, setGames]
 }
 export function useGetOneGames(gameId){
-    const [game, setGame] = useState({});
+    const [game, setGame] = useState({
+        title: '',
+        category: '',
+        maxLevel: '',
+        imageUrl: '',
+        summary: "",
+    });
     useEffect(() => {
         (async () => {
             const result = await gamesAPI.getOne(gameId);

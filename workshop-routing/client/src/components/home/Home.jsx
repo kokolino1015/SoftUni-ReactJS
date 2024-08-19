@@ -6,13 +6,12 @@ export default function Home() {
     const [latestGames, setLatestGames] = useState([])
     useEffect(()=>{
         (async ()=>{
-            const result = await gamesAPI.getAll();
-            setLatestGames(result.reverse().slice(0, 3))
+            const result = await gamesAPI.getLatest();
+            setLatestGames(result)
         })()
     }, [])
     return (
         <section id="welcome-world">
-
             <div className="welcome-message">
                 <h2>ALL new games are</h2>
                 <h3>Only in GamesPlay</h3>
